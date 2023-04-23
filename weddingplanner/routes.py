@@ -5,4 +5,4 @@ from weddingplanner.models import Wedding, Task, Supplier
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("weddings.html")
