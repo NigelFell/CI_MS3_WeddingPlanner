@@ -8,9 +8,12 @@ class Wedding(db.Model):
     wedding_date = db.Column(db.Date, nullable=False)
     wedding_town = db.Column(db.String(25), nullable=False)
     wedding_country = db.Column(db.String(25), nullable=False)
-    # many tasks to one wedding relationship, if wedding is deleted so are associated tasks
-    # lazy=True means all tasks are identified simulataneously on querying wedding
-    tasks = db.relationship("Task", backref="wedding", cascade="all, delete", lazy=True)
+    # many tasks to one wedding relationship,
+    #   if wedding is deleted so are associated tasks
+    # lazy=True means all tasks are identified simulataneously
+    #   on querying wedding
+    tasks = db.relationship("Task", backref="wedding",
+                            cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
@@ -25,11 +28,16 @@ class Task(db.Model):
     is_urgent = db.Column(db.Boolean, default=False, nullable=False)
     due_date = db.Column(db.Date, nullable=False)
     task_completed = db.Column(db.Boolean, default=False, nullable=False)
-    # one wedding to many tasks relationship, if wedding is deleted so are associated tasks
-    wedding_id = db.Column(db.Integer, db.ForeignKey("wedding.id", ondelete="CASCADE"), nullable=False)
-    # many suppliers to one task relationship, if task is deleted so are associated suppliers
-    # lazy=True means all suppliers are identified simulataneously on querying task
-    suppliers = db.relationship("Supplier", backref="task", cascade="all, delete", lazy=True)
+    # one wedding to many tasks relationship,
+    #   if wedding is deleted so are associated tasks
+    wedding_id = db.Column(db.Integer, db.ForeignKey("wedding.id",
+                           ondelete="CASCADE"), nullable=False)
+    # many suppliers to one task relationship,
+    #   if task is deleted so are associated suppliers
+    # lazy=True means all suppliers are identified simulataneously
+    #   on querying task
+    suppliers = db.relationship("Supplier", backref="task",
+                                cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
@@ -50,8 +58,10 @@ class Supplier(db.Model):
     deposit = db.Column(db.Float, nullable=False)
     deposit_paid = db.Column(db.Boolean, default=False, nullable=False)
     balance_paid = db.Column(db.Boolean, default=False, nullable=False)
-    # one task to many suppliers relationship, if task is deleted so are associated suppliers
-    task_id = db.Column(db.Integer, db.ForeignKey("task.id", ondelete="CASCADE"), nullable=False)
+    # one task to many suppliers relationship,
+    #   if task is deleted so are associated suppliers
+    task_id = db.Column(db.Integer, db.ForeignKey("task.id",
+                        ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
