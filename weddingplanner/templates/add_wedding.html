@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="light-blue-text text-darken-4 center-align">Add Wedding</h3>
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('add_wedding') }}">
+        <!-- wedding name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <input id="wedding_name" name="wedding_name" minlength="3" maxlength="25" type="text" class="validate" required>
+                <label for="wedding_name">Wedding Name</label>
+            </div>
+        </div>
+        <!-- wedding date -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                <input id="wedding_date" name="wedding_date" type="text" class="datepicker validate" required>
+                <label for="wedding_date">Wedding Date</label>
+            </div>
+        </div>
+        <!-- wedding town -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <input id="wedding_town" name="wedding_town" minlength="3" maxlength="25" type="text" class="validate" required>
+                <label for="wedding_town">Wedding Town</label>
+            </div>
+        </div>
+        <!-- wedding country -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <input id="wedding_country" name="wedding_country" minlength="2" maxlength="25" type="text" class="validate" required>
+                <label for="wedding_country">Wedding Country</label>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-pink darken-1">
+                    Add Wedding <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
