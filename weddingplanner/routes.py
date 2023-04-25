@@ -23,3 +23,16 @@ def add_wedding():
         return redirect(url_for("home"))
     return render_template("add_wedding.html")
 
+
+@app.route("/edit_wedding/<int:wedding_id>", methods=["GET", "POST"])
+def edit_wedding(wedding_id):
+    wedding = Wedding.query.get_or_404(wedding_id)
+    if request.method == "POST":
+        wedding.wedding_name = request.form.get("wedding_name")
+        wedding.wedding_date = request.form.get("wedding_date")
+        wedding.wedding_town = request.form.get("wedding_town")
+        wedding.wedding_country = request.form.get("wedding_country")
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("edit_wedding.html", wedding=wedding)
+

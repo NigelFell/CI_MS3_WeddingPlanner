@@ -17,12 +17,12 @@
         <div class="card light-blue darken-4 center-align">
             <div class="card-content white-text">
                 <span class="card-title">{{ wedding.wedding_name }}</span>
-                <p>Planned Date: {{ wedding.wedding_date }}</p>
+                <p>Planned Date: {{ wedding.wedding_date.strftime("%d %B, %Y") }}</p>
                 <p>Town: {{ wedding.wedding_town }}</p>
                 <p>Country: {{ wedding.wedding_country }}</p>
             </div>
             <div class="card-action">
-                <a href="#" class="btn green accent-4">Edit</a>
+                <a href="{{ url_for('edit_wedding', wedding_id=wedding.id) }}" class="btn green accent-4">Edit</a>
                 <a href="#" class="btn red">Delete</a>
             </div>
         </div>
