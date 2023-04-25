@@ -5,7 +5,8 @@ from weddingplanner.models import Wedding, Task, Supplier
 
 @app.route("/")
 def home():
-    return render_template("weddings.html")
+    weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+    return render_template("weddings.html", weddings=weddings)
 
 
 @app.route("/add_wedding", methods=["GET", "POST"])
