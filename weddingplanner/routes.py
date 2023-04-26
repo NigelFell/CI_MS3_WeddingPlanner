@@ -43,3 +43,27 @@ def delete_wedding(wedding_id):
     db.session.delete(wedding)
     db.session.commit()
     return redirect(url_for("home"))
+
+
+@app.route("/tasks")
+def tasks():
+    return render_template("tasks.html")
+
+
+@app.route("/add_task", methods=["GET", "POST"])
+def add_task():
+    weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+    if request.method == "POST":
+        task = Task(
+            task_name=request.form.get("task_name"),
+            task_description=request.form.get("task_description"),
+            is_urgent=bool(True if request.form.get("is_urgent") else False),
+            due_date=request.form.get("due_date"),
+            task_completed=bool(
+                True if request.form.get("task_completed") else False),
+            wedding_id=request.form.get("wedding_id")
+        )
+        db.session.add(task)
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("add_task.html", weddings=weddings)
