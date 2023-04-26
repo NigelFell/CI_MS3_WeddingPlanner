@@ -36,3 +36,10 @@ def edit_wedding(wedding_id):
         return redirect(url_for("home"))
     return render_template("edit_wedding.html", wedding=wedding)
 
+
+@app.route("/delete_wedding/<int:wedding_id>")
+def delete_wedding(wedding_id):
+    wedding = Wedding.query.get_or_404(wedding_id)
+    db.session.delete(wedding)
+    db.session.commit()
+    return redirect(url_for("home"))
