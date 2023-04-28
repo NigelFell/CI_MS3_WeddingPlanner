@@ -47,7 +47,8 @@ def delete_wedding(wedding_id):
 
 @app.route("/tasks")
 def tasks():
-    return render_template("tasks.html")
+    tasks = list(Task.query.order_by(Task.id).all())
+    return render_template("tasks.html", tasks=tasks)
 
 
 @app.route("/add_task", methods=["GET", "POST"])
