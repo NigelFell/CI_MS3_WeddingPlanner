@@ -11,4 +11,36 @@
     </div>
 </div>
 
+<ul class="collapsible">
+    {% for supplier in suppliers|sort(attribute="supplier_name") %}
+    <li>
+        <div class="collapsible-header white-text light-blue darken-4">
+            <i class="fas fa-caret-down"></i>
+            <strong>{{ supplier.supplier_name }}</strong>
+            {% if supplier.booked == True %}
+                : Booked <i class="fas fa-check-circle light-green-text text-lighten-2"></i>
+            {% endif %}
+        </div>
+        <div class="collapsible-body">
+            <strong>{{ supplier.task.wedding }} / {{ supplier.task.task_name }}</strong>
+            <p>Telephone: {{ supplier.supplier_telephone }}</p>
+            <p>Email: {{ supplier.supplier_email }}</p>
+            <p>Address: {{ supplier.supplier_address }}</p>
+            <hr>
+            <p>Total Cost: £ {{ supplier.cost }}</p>
+            <p>Deposit: £ {{ supplier.deposit }}
+                {% if supplier.deposit_paid == True %}
+                    , Paid <i class="fas fa-check-circle light-green-text text-lighten-2"></i>
+                {% endif %}
+            </p>
+            <p>Balance: £ {{ supplier.cost - supplier.deposit }} , Due {{ supplier.balance_due_date.strftime("%d %B, %Y") }}
+                {% if supplier.balance_paid == True %}
+                    , Paid <i class="fas fa-check-circle light-green-text text-lighten-2"></i>
+                {% endif %}
+            </p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
