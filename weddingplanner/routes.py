@@ -92,3 +92,32 @@ def delete_task(task_id):
     db.session.delete(task)
     db.session.commit()
     return redirect(url_for("tasks"))
+
+
+@app.route("/suppliers")
+def suppliers():
+    suppliers = list(Supplier.query.order_by(Supplier.id).all())
+    return render_template("suppliers.html", suppliers=suppliers)
+
+
+@app.route("/add_supplier", methods=["GET", "POST"])
+def add_supplier():
+    tasks = list(Task.query.order_by(Task.task_name).all())
+    if request.method == "POST":
+        supplier = Supplier(
+            supplier_name=request.form.get("supplier_name"),
+            supplier_telephone=request.form.get("supplier_telephone"),
+            supplier_email=request.form.get("supplier_email"),
+            supplier_address=request.form.get("supplier_address"),
+            booked=bool(True if request.form.get("booked") else False),
+            cost=request.form.get("cost"),
+            deposit=request.form.get("deposit"),
+            deposit_paid=bool(True if request.form.get("deposit_paid") else False),
+            balance_due_date=request.form.get("balance_due_date"),
+            balance_paid=bool(True if request.form.get("balance_paid") else False),
+            task_id=request.form.get("task_id")
+        )
+        db.session.add(supplier)
+        db.session.commit()
+        return redirect(url_for("suppliers"))
+    return render_template("add_supplier.html", tasks=tasks)

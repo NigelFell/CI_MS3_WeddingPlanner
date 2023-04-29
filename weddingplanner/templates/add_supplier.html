@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="light-blue-text text-darken-4 center-align">Add Supplier</h3>
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('add_supplier') }}">
+        <!-- supplier name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="supplier_name" name="supplier_name" minlength="5" maxlength="50" type="text" class="validate" required>
+                <label for="supplier_name">Supplier Name</label>
+            </div>
+        </div>
+        <!-- supplier telephone -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="supplier_telephone" name="supplier_telephone" type="tel" class="validate" required>
+                <label for="supplier_telephone">Telephone</label>
+            </div>
+        </div>
+        <!-- supplier email -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="supplier_email" name="supplier_email" type="email" class="validate" required>
+                <label for="supplier_email">Email</label>
+            </div>
+        </div>
+        <!-- supplier address -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                <textarea id="supplier_address" name="supplier_address" minlength="5" maxlength="200"
+                    type="text" class="materialize-textarea validate" required></textarea>
+                <label for="supplier_address">Address</label>
+            </div>
+        </div>
+        <!-- booked -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                    <label for="booked">
+                        <input id="booked" name="booked" type="checkbox">
+                        <span class="lever"></span>
+                        Booked
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- supplier cost -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="cost" name="cost" type="number" class="validate" required>
+                <label for="cost">Supplier Cost</label>
+            </div>
+        </div>
+        <!-- supplier deposit -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="deposit" name="deposit" type="number" class="validate" required>
+                <label for="deposit">Supplier Deposit</label>
+            </div>
+        </div>
+        <!-- deposit paid -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                    <label for="deposit_paid">
+                        <input id="deposit_paid" name="deposit_paid" type="checkbox">
+                        <span class="lever"></span>
+                        Deposit Paid
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- balance due date -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                <input id="balance_due_date" name="balance_due_date" type="text" class="datepicker validate" required>
+                <label for="balance_due_date">Balance Due Date</label>
+            </div>
+        </div>
+        <!-- balance paid -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                    <label for="balance_paid">
+                        <input id="balance_paid" name="balance_paid" type="checkbox">
+                        <span class="lever"></span>
+                        Balance Paid
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- task id -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <select id="task_id" name="task_id" class="validate" required>
+                    <option value="" disabled selected>Choose Task</option>
+                    {% for task in tasks %}
+                        <option value="{{ task.id }}">{{ task.task_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="task_id">Task</label>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1">
+                    Add Supplier <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
