@@ -57,6 +57,7 @@ class Supplier(db.Model):
     cost = db.Column(db.Float, nullable=False)
     deposit = db.Column(db.Float, nullable=False)
     deposit_paid = db.Column(db.Boolean, default=False, nullable=False)
+    balance_due_date = db.Column(db.Date, nullable=False)
     balance_paid = db.Column(db.Boolean, default=False, nullable=False)
     # one task to many suppliers relationship,
     #   if task is deleted so are associated suppliers
