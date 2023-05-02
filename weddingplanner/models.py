@@ -53,6 +53,7 @@ class Supplier(db.Model):
     supplier_telephone = db.Column(db.String(25), nullable=False)
     supplier_email = db.Column(db.String(25), nullable=False)
     supplier_address = db.Column(db.Text, nullable=False)
+    supplier_description = db.Column(db.Text, nullable=False)
     booked = db.Column(db.Boolean, default=False, nullable=False)
     cost = db.Column(db.Float, nullable=False)
     deposit = db.Column(db.Float, nullable=False)
