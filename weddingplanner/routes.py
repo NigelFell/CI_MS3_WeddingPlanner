@@ -109,6 +109,7 @@ def add_supplier():
             supplier_telephone=request.form.get("supplier_telephone"),
             supplier_email=request.form.get("supplier_email"),
             supplier_address=request.form.get("supplier_address"),
+            supplier_description=request.form.get("supplier_description"),
             booked=bool(True if request.form.get("booked") else False),
             cost=request.form.get("cost"),
             deposit=request.form.get("deposit"),
@@ -121,3 +122,33 @@ def add_supplier():
         db.session.commit()
         return redirect(url_for("suppliers"))
     return render_template("add_supplier.html", tasks=tasks)
+
+
+@app.route("/edit_supplier/<int:supplier_id>", methods=["GET", "POST"])
+def edit_supplier(supplier_id):
+    supplier = Supplier.query.get_or_404(supplier_id)
+    tasks = list(Task.query.order_by(Task.task_name).all())
+    if request.method == "POST":
+        supplier.supplier_name = request.form.get("supplier_name")
+        supplier.supplier_telephone = request.form.get("supplier_telephone")
+        supplier.supplier_email = request.form.get("supplier_email")
+        supplier.supplier_address = request.form.get("supplier_address")
+        supplier.supplier_description = request.form.get("supplier_description")
+        supplier.booked = bool(True if request.form.get("booked") else False)
+        supplier.cost = request.form.get("cost")
+        supplier.deposit = request.form.get("deposit")
+        supplier.deposit_paid = bool(True if request.form.get("deposit_paid") else False)
+        supplier.balance_due_date = request.form.get("balance_due_date")
+        supplier.balance_paid = bool(True if request.form.get("balance_paid") else False)
+        supplier.task_id = request.form.get("task_id")
+        db.session.commit()
+        return redirect(url_for("suppliers"))
+    return render_template("edit_supplier.html", supplier=supplier, tasks=tasks)
+
+
+@app.route("/delete_supplier/<int:supplier_id>")
+def delete_supplier(supplier_id):
+    supplier = Supplier.query.get_or_404(supplier_id)
+    db.session.delete(supplier)
+    db.session.commit()
+    return redirect(url_for("suppliers"))

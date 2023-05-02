@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Add Supplier</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Edit Supplier</h3>
 
 <div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('add_supplier') }}">
+    <form class="col s12" method="POST" action="{{ url_for('edit_supplier', supplier_id=supplier.id) }}">
         <!-- supplier name -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="supplier_name" name="supplier_name" minlength="5" maxlength="50" type="text" class="validate" required>
+                <input id="supplier_name" name="supplier_name" value="{{ supplier.supplier_name }}" minlength="5" maxlength="50"
+                    type="text" class="validate" required>
                 <label for="supplier_name">Supplier Name</label>
             </div>
         </div>
@@ -17,7 +18,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="supplier_telephone" name="supplier_telephone" type="tel" class="validate" required>
+                <input id="supplier_telephone" name="supplier_telephone" value="{{ supplier.supplier_telephone }}"
+                    type="tel" class="validate" required>
                 <label for="supplier_telephone">Telephone</label>
             </div>
         </div>
@@ -25,7 +27,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="supplier_email" name="supplier_email" type="email" class="validate" required>
+                <input id="supplier_email" name="supplier_email" value="{{ supplier.supplier_email }}"
+                    type="email" class="validate" required>
                 <label for="supplier_email">Email</label>
             </div>
         </div>
@@ -34,7 +37,9 @@
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                 <textarea id="supplier_address" name="supplier_address" minlength="5" maxlength="200"
-                    type="text" class="materialize-textarea validate" required></textarea>
+                    type="text" class="materialize-textarea validate" required>
+                    {{- supplier.supplier_address -}}
+                </textarea>
                 <label for="supplier_address">Address</label>
             </div>
         </div>
@@ -43,7 +48,9 @@
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                 <textarea id="supplier_description" name="supplier_description" minlength="5" maxlength="200"
-                    type="text" class="materialize-textarea validate" required></textarea>
+                    type="text" class="materialize-textarea validate" required>
+                    {{- supplier.supplier_description -}}
+                </textarea>
                 <label for="supplier_description">Description</label>
             </div>
         </div>
@@ -53,7 +60,11 @@
                 <div class="switch">
                     <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
                     <label for="booked">
-                        <input id="booked" name="booked" type="checkbox">
+                        {% if supplier.booked == True %}
+                            <input id="booked" name="booked" type="checkbox" checked>
+                        {% else %}
+                            <input id="booked" name="booked" type="checkbox">
+                        {% endif %}
                         <span class="lever"></span>
                         Booked
                     </label>
@@ -64,7 +75,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="cost" name="cost" type="number" class="validate" required>
+                <input id="cost" name="cost" value="{{ supplier.cost }}" type="number" class="validate" required>
                 <label for="cost">Supplier Cost</label>
             </div>
         </div>
@@ -72,7 +83,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="deposit" name="deposit" type="number" class="validate" required>
+                <input id="deposit" name="deposit" value="{{ supplier.deposit }}" type="number" class="validate" required>
                 <label for="deposit">Supplier Deposit</label>
             </div>
         </div>
@@ -82,7 +93,11 @@
                 <div class="switch">
                     <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
                     <label for="deposit_paid">
-                        <input id="deposit_paid" name="deposit_paid" type="checkbox">
+                        {% if supplier.deposit_paid == True %}
+                            <input id="deposit_paid" name="deposit_paid" type="checkbox" checked>
+                        {% else %}
+                            <input id="deposit_paid" name="deposit_paid" type="checkbox">
+                        {% endif %}
                         <span class="lever"></span>
                         Deposit Paid
                     </label>
@@ -93,7 +108,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-                <input id="balance_due_date" name="balance_due_date" type="text" class="datepicker validate" required>
+                <input id="balance_due_date" name="balance_due_date"  value="{{ supplier.balance_due_date.strftime('%d %B, %Y') }}"
+                    type="text" class="datepicker validate" required>
                 <label for="balance_due_date">Balance Due Date</label>
             </div>
         </div>
@@ -103,7 +119,11 @@
                 <div class="switch">
                     <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
                     <label for="balance_paid">
-                        <input id="balance_paid" name="balance_paid" type="checkbox">
+                        {% if supplier.balance_paid == True %}
+                            <input id="balance_paid" name="balance_paid" type="checkbox" checked>
+                        {% else %}
+                            <input id="balance_paid" name="balance_paid" type="checkbox">
+                        {% endif %}
                         <span class="lever"></span>
                         Balance Paid
                     </label>
@@ -115,9 +135,13 @@
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
                 <select id="task_id" name="task_id" class="validate" required>
-                    <option value="" disabled selected>Choose Task</option>
+                    <option value="" disabled>Choose Task</option>
                     {% for task in tasks %}
-                        <option value="{{ task.id }}">{{ task.task_name }}</option>
+                        {% if supplier.task_id == task.id %}
+                            <option value="{{ task.id }}" selected>{{ task.task_name }}</option>
+                        {% else %}
+                            <option value="{{ task.id }}">{{ task.task_name }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label for="task_id">Task</label>
