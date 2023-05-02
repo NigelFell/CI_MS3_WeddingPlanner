@@ -79,7 +79,8 @@ def edit_task(task_id):
         task.task_description = request.form.get("task_description")
         task.is_urgent = bool(True if request.form.get("is_urgent") else False)
         task.due_date = request.form.get("due_date")
-        task.task_completed = bool(True if request.form.get("task_completed") else False)
+        task.task_completed = bool(
+            True if request.form.get("task_completed") else False)
         task.wedding_id = request.form.get("wedding_id")
         db.session.commit()
         return redirect(url_for("tasks"))
@@ -113,9 +114,11 @@ def add_supplier():
             booked=bool(True if request.form.get("booked") else False),
             cost=request.form.get("cost"),
             deposit=request.form.get("deposit"),
-            deposit_paid=bool(True if request.form.get("deposit_paid") else False),
+            deposit_paid=bool(
+                True if request.form.get("deposit_paid") else False),
             balance_due_date=request.form.get("balance_due_date"),
-            balance_paid=bool(True if request.form.get("balance_paid") else False),
+            balance_paid=bool(
+                True if request.form.get("balance_paid") else False),
             task_id=request.form.get("task_id")
         )
         db.session.add(supplier)
@@ -133,17 +136,21 @@ def edit_supplier(supplier_id):
         supplier.supplier_telephone = request.form.get("supplier_telephone")
         supplier.supplier_email = request.form.get("supplier_email")
         supplier.supplier_address = request.form.get("supplier_address")
-        supplier.supplier_description = request.form.get("supplier_description")
+        supplier.supplier_description = request.form.get(
+            "supplier_description")
         supplier.booked = bool(True if request.form.get("booked") else False)
         supplier.cost = request.form.get("cost")
         supplier.deposit = request.form.get("deposit")
-        supplier.deposit_paid = bool(True if request.form.get("deposit_paid") else False)
+        supplier.deposit_paid = bool(
+            True if request.form.get("deposit_paid") else False)
         supplier.balance_due_date = request.form.get("balance_due_date")
-        supplier.balance_paid = bool(True if request.form.get("balance_paid") else False)
+        supplier.balance_paid = bool(
+            True if request.form.get("balance_paid") else False)
         supplier.task_id = request.form.get("task_id")
         db.session.commit()
         return redirect(url_for("suppliers"))
-    return render_template("edit_supplier.html", supplier=supplier, tasks=tasks)
+    return render_template(
+        "edit_supplier.html", supplier=supplier, tasks=tasks)
 
 
 @app.route("/delete_supplier/<int:supplier_id>")
