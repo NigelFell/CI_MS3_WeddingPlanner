@@ -1,6 +1,8 @@
 from flask import render_template, request, redirect, url_for
 from weddingplanner import app, db
 from weddingplanner.models import Wedding, Task, Supplier
+from datetime import date, timedelta
+import calendar
 
 
 @app.route("/")
@@ -93,6 +95,46 @@ def delete_task(task_id):
     db.session.delete(task)
     db.session.commit()
     return redirect(url_for("tasks"))
+
+
+@app.route("/add_default_tasks/<int:wedding_id>")
+def add_default_tasks(wedding_id):
+    wedding = Wedding.query.get_or_404(wedding_id)
+    today = date.today()
+
+    days_in_month = calendar.monthrange(today.year, today.month)[1]
+    date_next_month = today + timedelta(days=days_in_month)
+    task = Task(
+        task_name="Book Church",
+        task_description="Decide on location and book appointment with vicar",
+        is_urgent=bool(True),
+        due_date=date_next_month,
+        task_completed=bool(False),
+        wedding_id=wedding_id
+    )
+    db.session.add(task)
+
+    days_in_month = calendar.monthrange(date_next_month.year, date_next_month.month)[1]
+    date_next_month = today + timedelta(days=days_in_month)
+    task = Task(
+        task_name="Book Party Venue",
+        task_description="Decide on venue and book menu and drink",
+        is_urgent=bool(True),
+        due_date=date_next_month,
+        task_completed=bool(False),
+        wedding_id=wedding_id
+    )
+    db.session.add(task)
+
+    db.session.commit()
+    return redirect(url_for("home"))
+
+
+@app.route("/wedding_tasks/<int:wedding_id>")
+def wedding_tasks(wedding_id):
+    wedding = Wedding.query.get_or_404(wedding_id)
+    tasks = list(Task.query.filter_by(wedding_id=wedding_id))
+    return render_template("wedding_tasks.html", wedding=wedding, tasks=tasks)
 
 
 @app.route("/suppliers")
