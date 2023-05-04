@@ -71,6 +71,27 @@ def add_task():
     return render_template("add_task.html", weddings=weddings)
 
 
+@app.route("/add_wedding_task/<int:wedding_id>", methods=["GET", "POST"])
+def add_wedding_task(wedding_id):
+    wedding = Wedding.query.get_or_404(wedding_id)
+    if request.method == "POST":
+        task = Task(
+            task_name=request.form.get("task_name"),
+            task_description=request.form.get("task_description"),
+            is_urgent=bool(True if request.form.get("is_urgent") else False),
+            due_date=request.form.get("due_date"),
+            task_completed=bool(
+                True if request.form.get("task_completed") else False),
+            wedding_id=wedding_id
+        )
+        db.session.add(task)
+        db.session.commit()
+
+        tasks = list(Task.query.filter_by(wedding_id=wedding_id))
+        return redirect(url_for("wedding_tasks", wedding_id=wedding_id))
+    return render_template("add_wedding_task.html", wedding=wedding)
+
+
 @app.route("/edit_task/<int:task_id>", methods=["GET", "POST"])
 def edit_task(task_id):
     task = Task.query.get_or_404(task_id)
