@@ -99,7 +99,7 @@ def delete_task(task_id):
 @app.route("/add_default_tasks/<int:wedding_id>")
 def add_default_tasks(wedding_id):
     tasks = get_default_task_list(wedding_id)
-    
+
     for task in tasks:
         db.session.add(task)
 
@@ -112,6 +112,14 @@ def wedding_tasks(wedding_id):
     wedding = Wedding.query.get_or_404(wedding_id)
     tasks = list(Task.query.filter_by(wedding_id=wedding_id))
     return render_template("wedding_tasks.html", wedding=wedding, tasks=tasks)
+
+
+@app.route("/task_suppliers/<int:task_id>")
+def task_suppliers(task_id):
+    task = Task.query.get_or_404(task_id)
+    wedding = Wedding.query.get_or_404(task.wedding_id)
+    suppliers = list(Supplier.query.filter_by(task_id=task_id))
+    return render_template("task_suppliers.html", wedding=wedding, task=task, suppliers=suppliers)
 
 
 @app.route("/suppliers")
