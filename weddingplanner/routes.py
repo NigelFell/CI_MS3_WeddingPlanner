@@ -87,7 +87,7 @@ def add_wedding_task(wedding_id):
         db.session.add(task)
         db.session.commit()
 
-        tasks = list(Task.query.filter_by(wedding_id=wedding_id))
+        # tasks = list(Task.query.filter_by(wedding_id=wedding_id))
         return redirect(url_for("wedding_tasks", wedding_id=wedding_id))
     return render_template("add_wedding_task.html", wedding=wedding)
 
@@ -173,6 +173,35 @@ def add_supplier():
         db.session.commit()
         return redirect(url_for("suppliers"))
     return render_template("add_supplier.html", tasks=tasks)
+
+
+@app.route("/add_task_supplier/<int:task_id>", methods=["GET", "POST"])
+def add_task_supplier(task_id):
+    task = Task.query.get_or_404(task_id)
+    wedding = Wedding.query.get_or_404(task.wedding_id)
+    if request.method == "POST":
+        supplier = Supplier(
+            supplier_name=request.form.get("supplier_name"),
+            supplier_telephone=request.form.get("supplier_telephone"),
+            supplier_email=request.form.get("supplier_email"),
+            supplier_address=request.form.get("supplier_address"),
+            supplier_description=request.form.get("supplier_description"),
+            booked=bool(True if request.form.get("booked") else False),
+            cost=request.form.get("cost"),
+            deposit=request.form.get("deposit"),
+            deposit_paid=bool(
+                True if request.form.get("deposit_paid") else False),
+            balance_due_date=request.form.get("balance_due_date"),
+            balance_paid=bool(
+                True if request.form.get("balance_paid") else False),
+            task_id=task_id
+        )
+        db.session.add(supplier)
+        db.session.commit()
+
+        # suppliers = list(Supplier.query.filter_by(task_id=task_id))
+        return redirect(url_for("task_suppliers", task_id=task_id))
+    return render_template("add_task_supplier.html", wedding=wedding, task=task)
 
 
 @app.route("/edit_supplier/<int:supplier_id>", methods=["GET", "POST"])
