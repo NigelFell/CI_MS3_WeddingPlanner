@@ -3,11 +3,55 @@ from weddingplanner import app, db
 from weddingplanner.models import Wedding, Task, Supplier
 from weddingplanner.deftaskdata import get_default_task_list
 
+global_wedding_id = None
+global_wedding_country = None
+global_wedding_town = None
+
 
 @app.route("/")
 def home():
-    weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+    weddings = []
+    if global_wedding_id is not None:
+        weddings = list(Wedding.query.filter_by(id=global_wedding_id))
+    elif global_wedding_country is None and global_wedding_town is None:
+        weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+    elif global_wedding_country is not None and global_wedding_town is None:
+        weddings = list(Wedding.query.order_by(Wedding.wedding_name)
+                        .filter_by(wedding_country=global_wedding_country))
+    elif global_wedding_country is None and global_wedding_town is not None:
+        weddings = list(Wedding.query.order_by(Wedding.wedding_name)
+                        .filter_by(wedding_town=global_wedding_town))
+    else:
+        weddings = list(Wedding.query.order_by(Wedding.wedding_name)
+                        .filter_by(wedding_country=global_wedding_country)
+                        .filter_by(wedding_town=global_wedding_town))
+        
     return render_template("weddings.html", weddings=weddings)
+
+
+@app.route("/search_weddings", methods=["GET", "POST"])
+def search_weddings():
+    global global_wedding_id
+    global global_wedding_country
+    global global_wedding_town
+
+    if request.method == "POST":
+        global_wedding_id = request.form.get("wedding_id")
+        global_wedding_country = request.form.get("wedding_country")
+        global_wedding_town = request.form.get("wedding_town")
+        return redirect(url_for("home"))
+
+    weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+    countries_set = set()
+    towns_set = set()
+    for wedding in weddings:
+        countries_set.add(wedding.wedding_country)
+        towns_set.add(wedding.wedding_town)
+    countries = list(countries_set)
+    countries.sort()
+    towns = list(towns_set)
+    towns.sort()
+    return render_template("search_weddings.html", weddings=weddings, countries=countries, towns=towns)
 
 
 @app.route("/add_wedding", methods=["GET", "POST"])
@@ -87,7 +131,6 @@ def add_wedding_task(wedding_id):
         db.session.add(task)
         db.session.commit()
 
-        # tasks = list(Task.query.filter_by(wedding_id=wedding_id))
         return redirect(url_for("wedding_tasks", wedding_id=wedding_id))
     return render_template("add_wedding_task.html", wedding=wedding)
 
@@ -199,7 +242,6 @@ def add_task_supplier(task_id):
         db.session.add(supplier)
         db.session.commit()
 
-        # suppliers = list(Supplier.query.filter_by(task_id=task_id))
         return redirect(url_for("task_suppliers", task_id=task_id))
     return render_template("add_task_supplier.html", wedding=wedding, task=task)
 
