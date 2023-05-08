@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for
 from weddingplanner import app, db
 from weddingplanner.models import Wedding, Task, Supplier
 from weddingplanner.deftaskdata import get_default_task_list
+from datetime import date, timedelta
 
 global_wedding_id = None
 global_wedding_country = None
@@ -320,6 +321,42 @@ def edit_task_supplier(supplier_id):
         return redirect(url_for("task_suppliers", task_id=supplier.task_id))
     return render_template(
         "edit_task_supplier.html", wedding=wedding, task=task, supplier=supplier)
+
+
+@app.route("/copy_task_supplier/<int:supplier_id>", methods=["GET", "POST"])
+def copy_task_supplier(supplier_id):
+    from_supplier = Supplier.query.get_or_404(supplier_id)
+
+    if request.method == "POST":
+        to_task = Task.query.get_or_404(request.form.get("task_id"))
+        balance_due_date = to_task.due_date - timedelta(weeks = 1)
+        supplier = Supplier(
+            supplier_name=from_supplier.supplier_name,
+            supplier_telephone=from_supplier.supplier_telephone,
+            supplier_email=from_supplier.supplier_email,
+            supplier_address=from_supplier.supplier_address,
+            supplier_description=from_supplier.supplier_description,
+            booked=bool(False),
+            cost=from_supplier.cost,
+            deposit=from_supplier.deposit,
+            deposit_paid=bool(False),
+            balance_due_date=balance_due_date,
+            balance_paid=bool(False),
+            task_id=request.form.get("task_id")
+        )
+        db.session.add(supplier)
+        db.session.commit()
+        return redirect(url_for("task_suppliers", task_id=supplier.task_id))
+    
+    # weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+    # tasks = list(Task.query.order_by(Task.task_name).all())
+
+    wedding_tasks = {}
+    weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+    for wedding in weddings:
+        tasks = list(Task.query.order_by(Task.task_name).filter_by(wedding_id=wedding.id))
+        wedding_tasks.update({wedding.wedding_name: tasks})
+    return render_template("copy_task_supplier.html", supplier=from_supplier, wedding_tasks=wedding_tasks)
 
 
 @app.route("/delete_supplier/<int:supplier_id>")

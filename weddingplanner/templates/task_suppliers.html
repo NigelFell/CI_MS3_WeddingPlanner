@@ -42,6 +42,7 @@
             </p>
             <p>
                 <a href="{{ url_for('edit_task_supplier', supplier_id=supplier.id) }}" class="btn green accent-4">Edit</a>
+                <a href="{{ url_for('copy_task_supplier', supplier_id=supplier.id) }}" class="btn green accent-4">Copy</a>
                 <a href="#modal-{{ supplier.id }}" class="btn red modal-trigger">Delete</a>
 
                 <!-- Modal for delete -->
