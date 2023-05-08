@@ -41,6 +41,16 @@ def get_default_task_list(wedding_id):
     )
     tasks.append(task)
 
+    task = Task(
+        task_name="Book Honneymoon",
+        task_description="Decide on where and book trip",
+        is_urgent=bool(True),
+        due_date=date_next_month,
+        task_completed=bool(False),
+        wedding_id=wedding_id
+    )
+    tasks.append(task)
+
     days_in_month = calendar.monthrange(date_next_month.year, date_next_month.month)[1]
     date_next_month = date_next_month + timedelta(days=days_in_month)
     task = Task(
