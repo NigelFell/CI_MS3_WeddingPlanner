@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Edit Task for Wedding {{ wedding.wedding_name }}</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Edit Task for Wedding: {{ wedding.wedding_name }}</h3>
 
 <div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="{{ url_for('edit_wedding_task', task_id=task.id) }}">
@@ -68,23 +68,6 @@
                 </div>
             </div>
         </div>
-        <!-- wedding id -->
-        <!-- <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <select id="wedding_id" name="wedding_id" class="validate" required>
-                    <option value="" disabled>Choose Wedding</option>
-                    {% for wedding in weddings %}
-                        {% if wedding == task.wedding %}
-                            <option value="{{ wedding.id }}" selected>{{ wedding.wedding_name }}</option>
-                        {% else %}
-                            <option value="{{ wedding.id }}">{{ wedding.wedding_name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-                <label for="wedding_id">Wedding</label>
-            </div>
-        </div> -->
         <!-- submit/cancel buttons -->
         <div class="row">
             <div class="col s12 center-align">
