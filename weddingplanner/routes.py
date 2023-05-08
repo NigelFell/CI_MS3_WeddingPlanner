@@ -296,9 +296,43 @@ def edit_supplier(supplier_id):
         "edit_supplier.html", supplier=supplier, tasks=tasks)
 
 
+@app.route("/edit_task_supplier/<int:supplier_id>", methods=["GET", "POST"])
+def edit_task_supplier(supplier_id):
+    supplier = Supplier.query.get_or_404(supplier_id)
+    task = Task.query.get_or_404(supplier.task_id)
+    wedding = Wedding.query.get_or_404(task.wedding_id)
+    if request.method == "POST":
+        supplier.supplier_name = request.form.get("supplier_name")
+        supplier.supplier_telephone = request.form.get("supplier_telephone")
+        supplier.supplier_email = request.form.get("supplier_email")
+        supplier.supplier_address = request.form.get("supplier_address")
+        supplier.supplier_description = request.form.get(
+            "supplier_description")
+        supplier.booked = bool(True if request.form.get("booked") else False)
+        supplier.cost = request.form.get("cost")
+        supplier.deposit = request.form.get("deposit")
+        supplier.deposit_paid = bool(
+            True if request.form.get("deposit_paid") else False)
+        supplier.balance_due_date = request.form.get("balance_due_date")
+        supplier.balance_paid = bool(
+            True if request.form.get("balance_paid") else False)
+        db.session.commit()
+        return redirect(url_for("task_suppliers", task_id=supplier.task_id))
+    return render_template(
+        "edit_task_supplier.html", wedding=wedding, task=task, supplier=supplier)
+
+
 @app.route("/delete_supplier/<int:supplier_id>")
 def delete_supplier(supplier_id):
     supplier = Supplier.query.get_or_404(supplier_id)
     db.session.delete(supplier)
     db.session.commit()
     return redirect(url_for("suppliers"))
+
+
+@app.route("/delete_task_supplier/<int:supplier_id>")
+def delete_task_supplier(supplier_id):
+    supplier = Supplier.query.get_or_404(supplier_id)
+    db.session.delete(supplier)
+    db.session.commit()
+    return redirect(url_for("task_suppliers", task_id=supplier.task_id))
