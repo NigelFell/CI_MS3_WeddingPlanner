@@ -2,8 +2,20 @@ from weddingplanner.models import Task
 from datetime import date, timedelta
 import calendar
 
+"""
+    Module provides function to build default task list for a wedding
+    get_default_task_list(wedding_id)
+"""
+
 
 def get_default_task_list(wedding_id):
+
+    """
+        get_default_task_list(wedding_id) funtion
+        Builds a list of default tasks with due_dates set from todays date
+        Returns the default list of tasks for the specified wedding
+    """
+    
     today = date.today()
     tasks = []
 

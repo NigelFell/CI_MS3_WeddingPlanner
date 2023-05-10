@@ -1,8 +1,17 @@
 from weddingplanner import db
 
+"""
+    Module provides classes defining the database schema for the wedding planner application
+    Wedding, Task and Supplier classes
+"""
+
 
 class Wedding(db.Model):
-    # schema for the Wedding model
+    """
+        Wedding class schema, primary key id, unique wedding name
+        A wedding can have many tasks
+    """
+
     id = db.Column(db.Integer, primary_key=True)
     wedding_name = db.Column(db.String(25), unique=True, nullable=False)
     wedding_date = db.Column(db.Date, nullable=False)
@@ -21,7 +30,11 @@ class Wedding(db.Model):
 
 
 class Task(db.Model):
-    # schema for the Task model
+    """
+        Task class schema, primary key id
+        A task is associated to one wedding and can have many suppliers
+    """
+
     id = db.Column(db.Integer, primary_key=True)
     task_name = db.Column(db.String(50), nullable=False)
     task_description = db.Column(db.Text, nullable=False)
@@ -47,7 +60,11 @@ class Task(db.Model):
 
 
 class Supplier(db.Model):
-    # schema for the Supplier model
+    """
+        Supplier class schema, primary key id
+        A supplier is associated to one task
+    """
+
     id = db.Column(db.Integer, primary_key=True)
     supplier_name = db.Column(db.String(25), nullable=False)
     supplier_telephone = db.Column(db.String(25), nullable=False)
