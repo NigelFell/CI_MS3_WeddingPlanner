@@ -1,10 +1,10 @@
-![Four in a Line logo](assets/images/four_in_a_line.png)
+![Wedding Planner logo](weddingplanner/docs/heart.ico)
 
-# Four in a Line
+# Wedding Planner
 
-### This is the website for a Four in a Line Game. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
+### This is the website for a Wedding Planner Application. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
 
-[View the live project here.](https://nigelfell.github.io/CI_MS2_FourInALine/)
+[View the live project here.](https://nigelfell.github.io/)
 
 #
 
