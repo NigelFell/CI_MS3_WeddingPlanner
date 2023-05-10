@@ -1,108 +1,280 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Four in a Line logo](assets/images/four_in_a_line.png)
 
-Welcome NigelFell,
+# Four in a Line
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+### This is the website for a Four in a Line Game. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+[View the live project here.](https://nigelfell.github.io/CI_MS2_FourInALine/)
 
-## Gitpod Reminders
+#
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### A screenshot of the responsive website:
+![A screenshot of the responsive website](assets/docs/responsive.png)
 
-`python3 -m http.server`
+#
 
-A blue button should appear to click: _Make Public_,
+## Project Scope
 
-Another blue button should appear to click: _Open Browser_.
+    To build a website for two users to play a Four in a Line game, taking turns to drop counters and so competing against each other to line up four counters in a column, row or diagonal arrangement.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+    The website will indicate which players turn it is next, check and display if there has been a winner, display the players score in games won, allow the players to reset the board so starting a new game and display the rules and objective of the game.
 
-A blue button should appear to click: _Make Public_,
+#
 
-Another blue button should appear to click: _Open Browser_.
+## Future Enhancements
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+    1. Allow one user to compete against the website at different levels of skill.
 
-To log into the Heroku toolbelt CLI:
+    2. Allow two users to compete against each other but on different devices in different locations.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## User Experience (UX)
 
-------
+-    ### User stories
 
-## Release History
+    -   First Time Visitor Goals:
+        1. As a First Time Visitor, I want to easily understand the main purpose of the site.
+        2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a  
+           clear presentation that is responsive on different devices.
+        3. As a First Time Visitor, I want to be able to view how to play and the objective of the 
+           game.
+        4. As a First Time Visitor, I want to be able to view current scores.
+        5. As a First Time Visitor, I want to be able to see who's turn it is next.
+        6. As a First Time Visitor, I want to be able to see see the winner.
+        7. As a First Time Visitor, I want to be able to reset the game and start a new one.
+        
+    -   Returning & Frequent Visitor Goals:
+        1. As a Returning Visitor, I want to quickly access the site and play the Four in a Line game as per the first time visitor.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+-   ### Design
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+    -   #### Colour Scheme
+        To create a modern look and feel that is clear to new users and familiar to a user who has played the physical version of the Four in a Line game.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    -   #### Typography
+        Raleway is the font used on the site. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. The Raleway font is an elegant sans-serif typeface.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+    -   #### Imagery
+        Imagery is important but has been kept to a minimum to improve the sites upload time.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+    -   #### Sound
+        Sound effects enhance the user experience with extra feedback on their actions.
+  
+    -   #### A screenshot of the visual design elements:
+        ![A screenshot of the visual design elements](assets/docs/user-experience-design.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+-   ### Wireframes
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    -   #### The wireframe for a standard computer screen:
+        ![View of the standard wireframe](assets/docs/wireframe.png)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+    -   #### The wireframe for a mobile device:
+        ![View of the mobile wireframe](assets/docs/wireframe-mobile.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+-   ### Initial Coding
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    -   The site was coded in Gitpod alongside the "Love Maths" project and therefore takes some of    
+        the features and code from this resource.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+-   ### Responsiveness
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+    -   The site was initially checked with Google Chrome's Dev Tools using the Device Toolbar to 
+        check different device sizes, [screenshots below in test section.](#TestResp)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+    -   The site was then run on a Nokia 3.1 mobile phone running Andriod version 10 with good results
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+#
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Features
 
-------
+-   Responsive on all device sizes
+-   Interactive elements
+-   Interactive front-end that responds to the users' actions, allowing users to actively engage with 
+    data, alter the way the site displays the information to achieve their preferred goals.
 
-## FAQ about the uptime script
+#
 
-**Why have you added this script?**
+## Technologies Used
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Languages Used
 
-**How will this affect me?**
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Frameworks, Libraries & Programs Used
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+1. [W3 Schools:](https://www.w3schools.com/)
+    - W3 Schools was used as a HTML and CSS reference.
+2. [Code Institute](https://learn.codeinstitute.net/ci_program/diplomainwebappdevelopment)
+    - The "Love Maths" project was used as the basis of the Four in a Line website.
+3. [Stack Overflow](https://stackoverflow.com/)
+    - Stack Overflow was used to search for solutions to specific requirements.
+4. [Paint]
+    - Paint for Windows was used to crop and resize the images/icons where required.
+5. [Google Fonts:](https://fonts.google.com/)
+    - Google fonts were used to import the 'Raleway' font into the style.css file which is used in the project.
+6. [Git](https://git-scm.com/)
+    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+7. [GitHub:](https://github.com/)
+    - GitHub is used to store the project code after being pushed from Git.
+8. [Figma:](https://figma.com/)
+    - Figma was used to create the [wireframes](https://github.com/) during the design process.
+9. [Material Design:](https://material.io/resources/color/)
+    - Material Design was used to create and test the colour scheme for the website.
+10. [Free Sounds Library](https://www.freesoundslibrary.com/)
+    - Sound effects were downloaded from the Free Sounds Library.
+11. [Font Awesome](https://fontawesome.com/)
+    - Font Awesome was used on the website to add icons for aesthetic and UX purposes.
+12. [Google Chrome]
+    - The Device Toolbar in Dev Tools was used to check the responsiveness of the site.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+## Testing
 
-**So….?**
+### HTML and CSS Validation
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+    The W3C Markup Validator, W3C CSS Validator and JSHint JavaScript Validator services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-**Can I opt out?**
+-   [W3C Markup Validator](https://validator.w3.org/) - [View results](assets/docs/html-validation-results.png)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [View results](assets/docs/css-validation-results.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+-   [JSHint JavaScript Validator](https://jshint.com/) - [View results](assets/docs/js-validation-results.png)
 
-**Anything more?**
+### <a id="TestResp"></a>Responsiveness
+    
+    The site was initially checked with Google Chrome's Dev Tools using the Device Toolbar to check different device sizes, screenshots below:
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+-   [View a screenshot of the standard computer](assets/docs/gc-resp-standard.png)
+-   [View a screenshot of the Samsung Galaxy S8](assets/docs/gc-resp-samsunggs8.png)
+-   [View a screenshot of the iPhone SE](assets/docs/gc-resp-iphonese.png)
+-   [View a screenshot of the iPhone 5](assets/docs/gc-resp-iphone5.png)
+-   [View a screenshot of the iPad Air](assets/docs/gc-resp-ipadair.png)
 
----
+### Testing User Stories from User Experience (UX) Section
 
-Happy coding!
+-   #### First Time Visitor Goals
+  
+    1. As a First Time Visitor, I want to easily understand the main purpose of the site.
+        1. Upon entering the site, users can easily see what the purpose of the site is whether or not they are familiar with the Four in a Line game.
+        2. The heading a logo clearly communicate what the site is about.
+        3. The page is unclutterred with minimal elements to navigate so the user can concentrate on the game.
+        4. The user can easily see who's turn it is next, if there has been a winner, the current scores and can restart the game.
+        5. There are tooltips on the who's turn it is textbox and new game button to assist the user.
+        6. The user can easily see instructions on how to play and the rules of the game.
+        7. The user is alerted with a popup if they click a column that is full, if they carry on playing after a winner has been declared or if they click the new game button when the game is still in play.
+
+    2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a clear 
+       presentation that is responsive on different devices.
+        1. The site has been designed to be easy to use and allow the user to concentrate on the game 
+           using different devices such as a standard computer, laptop, tablet or mobile phone.
+        2. The user can position a counter over a column with the cursor and "drop" the counter with a click. If the column is full the user is alerted with a popup.
+        3. If the counter dropped is a winner the user is notified in the highlighted text box above the game table. 
+    
+    3. As a First Time Visitor, I want to be able to view how to play and the objective of the game.
+        1. The user can easily find a description of the rules and objective of the game in a rules 
+           section.
+
+    4. As a First Time Visitor, I want to be able to view current scores.
+        1. The user can easily see current scores under the game table.
+
+    5. As a First Time Visitor, I want to be able to see who's turn it is next.
+        1. The user can easily see who's turn it is next in a highlighted text box above the game table.
+
+    6. As a First Time Visitor, I want to be able to see if the game has been won.
+        1. The user can see the winner in a highlighted text box above the game table.
+
+    7. As a First Time Visitor, I want to be able to reset the game and start a new one.
+        1. The user can easily start a new game by pressing the New Game button above the game table.
+        2. If the game is still in play a confirm popup is shown to the user.
+
+-   #### Returning & Frequent Visitor Goals
+
+    1. As a Returning Visitor, I want to quickly access the site and play the Four in a Line game as per 
+       the first time visitor.
+        1. The user can access the site quickly and start playing a new game as they are familiar with the rules and intuitive game design.
+
+### Testing The Check For A Winner Algorithm
+
+-   #### Algorithm Design
+
+    The algorithm design follows a methodical approach, checking for a winner in the just dropped counters column, then row, then diagonal going right and finally diagonal going left. The testing followed this same approach with test scenarios to cover each eventuality.
+
+-   #### Test Scenarios Performed
+
+    1. Tests for win in column:
+        1. Test for win in first column from bottom row up four counters, top row down four counters and then the middle four rows.
+        2. Test for win in last column from bottom row up four counters, top row down four counters and then the middle four rows.
+        3. Test for win in a middle column from bottom row up four counters, top row down four counters and then the middle four rows.
+
+    2. Tests for win in row:
+        1. Test for win in bottom row from first column across four counters, last column back across four counters and then in the middle columns across four counters.
+        2. Test for win in top row from first column across four counters, last column back across four counters and then in the middle columns across four counters.
+        3. Test for win in a middle row from first column across four counters, last column back across four counters and then in the middle columns across four counters.
+
+    3. Tests for win diagonal going left to right:
+        1. Test for win from bottom row first column diagonally across and then a middle column diagonally across.
+        2. Test for win from top row diagonally back from the last column and then diagonally back from a middle column.
+        3. Test for win from a middle row first column diagonally across and then a middle column diagonally across.
+        4. Test for win from a middle row diagonally back from the last column and then diagonally back from a middle column.
+
+    4. Tests for win diagonal going right to left:
+        1. Test for win from bottom row last column diagonally back across and then a middle column diagonally back across.
+        2. Test for win from top row diagonally across from the first column and then diagonally back from a middle column.
+        3. Test for win from a middle row first column diagonally back across and then a middle column diagonally back across.
+        4. Test for win from a middle row diagonally back from the last column and then diagonally back from a middle column.
+
+### Further Testing
+
+-   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Opera browsers.
+-   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 6 and various Window 
+    phones.
+-   Friends and family members were asked to review the site on as many devices as they had available, 
+    play the game and to point out any bugs and/or user experience issues.
+
+### Known Bugs
+
+-   No known bugs at this time!
+
+#
+
+## Deployment
+
+### GitHub Pages
+
+The project was deployed to GitHub Pages using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
+    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
+3. Scroll down the Settings page until you locate the "Pages" Section on the left hand side of the screen.
+4. Under "Source", click the dropdown and select "Deploy from a branch".
+5. Under "Branch", click the first dropdown and select "main", "/ (root)" on the next dropdown, then "Save".
+5. The page will automatically refresh.
+6. Scroll back to the top of the page to locate the now published site next to "Your site is live at".
+
+#
+
+## Credits
+
+### Code
+
+-   The project was initailly coded alongside the "Love Maths" project and therefore takes some of the 
+    features and source code from this resource.
+
+### Content
+
+-   All the site content was written by the developer.
+
+### Media
+
+-   
+
+### Acknowledgements
+
+-   Pasquale for his help and encouragement.
+
+-   My Mentor for support and helpful feedback.
+
+-   Slack group members for their help.
