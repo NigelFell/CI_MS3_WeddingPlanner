@@ -82,8 +82,14 @@ def add_wedding():
             and redirects to weddings.html
     """
     if request.method == "POST":
+        weddings = list(Wedding.query.order_by(Wedding.wedding_name).all())
+        wedding_name = request.form.get("wedding_name")
+        for wedding in weddings:
+            if wedding.wedding_name == wedding_name:
+                return render_template("add_wedding.html", error="Sorry, '" + wedding_name + "' is already being used!")
+
         wedding = Wedding(
-            wedding_name=request.form.get("wedding_name"),
+            wedding_name=wedding_name,
             wedding_date=request.form.get("wedding_date"),
             wedding_town=request.form.get("wedding_town"),
             wedding_country=request.form.get("wedding_country")
@@ -91,7 +97,8 @@ def add_wedding():
         db.session.add(wedding)
         db.session.commit()
         return redirect(url_for("home"))
-    return render_template("add_wedding.html")
+    
+    return render_template("add_wedding.html", error="None")
 
 
 @app.route("/edit_wedding/<int:wedding_id>", methods=["GET", "POST"])

@@ -9,7 +9,11 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <input id="wedding_name" name="wedding_name" minlength="3" maxlength="25" type="text" class="validate" required>
+                {% if error == "None" %}
+                    <input id="wedding_name" name="wedding_name" minlength="3" maxlength="25" type="text" class="validate" required>
+                {% else %}
+                    <input id="wedding_name" name="wedding_name" value="{{ error }}" minlength="3" maxlength="25" type="text" class="validate" required>
+                {% endif %}
                 <label for="wedding_name">Wedding Name</label>
             </div>
         </div>
