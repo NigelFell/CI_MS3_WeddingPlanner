@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Tasks for Wedding: {{ wedding.wedding_name }}</h3>
+<h3 class="pink-text text-darken-4 center-align">Tasks for Wedding: {{ wedding.wedding_name }}</h3>
 
 <div class="row">
     <div class="col s12 center-align">
-        <a href="{{ url_for('add_wedding_task', wedding_id=wedding.id) }}" class="btn-large light-blue darken-2">
+        <a href="{{ url_for('add_wedding_task', wedding_id=wedding.id) }}" class="btn-large pink darken-2">
             Add Task <i class="fas fa-plus-square right"></i>
         </a>
     </div>
@@ -14,21 +14,21 @@
 <ul class="collapsible">
     {% for task in tasks|sort(attribute="due_date") %}
     <li>
-        <div class="collapsible-header white-text light-blue darken-4">
+        <div class="collapsible-header white-text pink lighten-1">
             <i class="fas fa-caret-down"></i>
             <strong>{{ task.task_name }}</strong> : {{ task.due_date.strftime("%d %B, %Y") }}
             {% if task.is_urgent == True %}
-                <i class="fas fa-exclamation-circle light-blue-text text-lighten-2"></i>
+                <i class="fas fa-exclamation-circle white-text"></i>
             {% endif %}
             {% if task.task_completed == True %}
-                <i class="fas fa-check-circle light-green-text text-lighten-2"></i>
+                <i class="fas fa-check-circle white-text"></i>
             {% endif %}
         </div>
         <div class="collapsible-body">
             <strong>{{ task.wedding }}</strong>
             <p>{{ task.task_description }}</p>
             <p>
-                <a href="{{ url_for('edit_wedding_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
+                <a href="{{ url_for('edit_wedding_task', task_id=task.id) }}" class="btn green">Edit</a>
                 <a href="#modal-{{ task.id }}" class="btn red modal-trigger">Delete</a>
 
                 <!-- Modal for delete -->
@@ -39,11 +39,11 @@
                     </div>
                     <div class="modal-footer">
                         <a href="{{ url_for('delete_wedding_task', task_id=task.id) }}" class="btn red">Delete</a>
-                        <a href="#!" class="modal-close btn green accent-4">Cancel</a>
+                        <a href="#!" class="modal-close btn green">Cancel</a>
                     </div>
                 </div>
 
-                <a href="{{ url_for('task_suppliers', task_id=task.id) }}" class="btn green accent-4">View Suppliers</a>
+                <a href="{{ url_for('task_suppliers', task_id=task.id) }}" class="btn pink darken-2">View Suppliers</a>
             </p>
         </div>
     </li>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Copy Supplier: {{ supplier.supplier_name }}</h3>
+<h3 class="pink-text text-darken-4 center-align">Copy Supplier: {{ supplier.supplier_name }}</h3>
 
 <div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="{{ url_for('copy_task_supplier', supplier_id=supplier.id) }}">
@@ -22,13 +22,13 @@
                 <label for="task_id">Wedding Task</label>
             </div>
         </div>        
-        <!-- submit button -->
+        <!-- submit and cancel buttons -->
         <div class="row">
             <div class="col s12 center-align">
-                <button type="submit" class="btn-large light-blue darken-1">
+                <button type="submit" class="btn-large pink darken-2">
                     Copy <i class="fas fa-edit right"></i>
                 </button>
-                <button type="button" class="btn-large light-blue darken-1" onclick="window.history.back();">
+                <button type="button" class="btn-large pink darken-2" onclick="window.history.back();">
                     Cancel <i class="fas fa-times right"></i>
                 </button>
             </div>

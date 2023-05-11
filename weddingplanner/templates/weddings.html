@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Weddings</h3>
+<!-- <h3 class="light-blue-text text-darken-4 center-align">Weddings</h3> -->
+<h3 class="pink-text text-darken-4 center-align">Weddings</h3>
 
 <div class="row">
     <div class="col s12 center-align">
-        <a href="{{ url_for('search_weddings') }}" class="btn-large light-blue darken-2">
+        <a href="{{ url_for('search_weddings') }}" class="btn-large pink darken-2">
             Search Weddings <i class="fas fa-search right"></i>
         </a>
-        <a href="{{ url_for('add_wedding') }}" class="btn-large light-blue darken-2">
+        <a href="{{ url_for('add_wedding') }}" class="btn-large pink darken-2">
             Add Wedding <i class="fas fa-plus-square right"></i>
         </a>
     </div>
@@ -17,7 +18,7 @@
 <div class="row">
     {% for wedding in weddings %}
     <div class="col s12 m6 l3">
-        <div class="card light-blue darken-4 center-align">
+        <div class="card pink lighten-1 center-align">
             <div class="card-content white-text">
                 <span class="card-title">{{ wedding.wedding_name }}</span>
                 <p>Planned Date: {{ wedding.wedding_date.strftime("%d %B, %Y") }}</p>
@@ -26,7 +27,7 @@
             </div>
             <div class="card-action">
                 <div>
-                    <a href="{{ url_for('edit_wedding', wedding_id=wedding.id) }}" class="btn green accent-4">Edit</a>
+                    <a href="{{ url_for('edit_wedding', wedding_id=wedding.id) }}" class="btn green">Edit</a>
                     <a href="#modaldw-{{ wedding.id }}" class="btn red modal-trigger">Delete</a>
 
                     <!-- Modal for delete -->
@@ -37,14 +38,14 @@
                         </div>
                         <div class="modal-footer">
                             <a href="{{ url_for('delete_wedding', wedding_id=wedding.id) }}" class="btn red">Delete</a>
-                            <a href="#!" class="modal-close btn green accent-4">Cancel</a>
+                            <a href="#!" class="modal-close btn green">Cancel</a>
                         </div>
                     </div>
                 </div>
                 <hr class="card-action-divider">
                 <div>
-                    <a href="{{ url_for('wedding_tasks', wedding_id=wedding.id) }}" class="btn green accent-4">View Tasks</a>
-                    <a href="#modalat-{{ wedding.id }}" class="btn green accent-4 modal-trigger">Add Tasks</a>
+                    <a href="{{ url_for('wedding_tasks', wedding_id=wedding.id) }}" class="btn pink darken-2">View Tasks</a>
+                    <a href="#modalat-{{ wedding.id }}" class="btn pink darken-2 modal-trigger">Add Tasks</a>
 
                     <!-- Modal for add default tasks -->
                     <div id="modalat-{{ wedding.id }}" class="modal">
@@ -53,8 +54,8 @@
                             <p>The default tasks will help get your planning started for a new Wedding setup...</p>
                         </div>
                         <div class="modal-footer">
-                            <a href="{{ url_for('add_default_tasks', wedding_id=wedding.id) }}" class="btn green accent-4">Add Default Tasks</a>
-                            <a href="#!" class="modal-close btn green accent-4">Cancel</a>
+                            <a href="{{ url_for('add_default_tasks', wedding_id=wedding.id) }}" class="btn green">Add Default Tasks</a>
+                            <a href="#!" class="modal-close btn green">Cancel</a>
                         </div>
                     </div>
                 </div>

@@ -75,9 +75,11 @@ def add_wedding():
     """
         add_wedding() function for @app.route("/add_wedding") form
         On GET:
-            renders add_wedding.html
+            renders add_wedding.html passing error="None"
         On POST:
-            creates a Wedding object with the form attributes
+            retrieves a list of all weddings from the database and the new wedding name to be added
+            if the wedding name is found in the list renders add_wedding.html passing error=error_message
+            else creates a Wedding object with the form attributes
             saves the Wedding object to the database
             and redirects to weddings.html
     """
@@ -86,7 +88,8 @@ def add_wedding():
         wedding_name = request.form.get("wedding_name")
         for wedding in weddings:
             if wedding.wedding_name == wedding_name:
-                return render_template("add_wedding.html", error="Sorry, '" + wedding_name + "' is already being used!")
+                error_message = "Sorry, '" + wedding_name + "' is already being used!"
+                return render_template("add_wedding.html", error=error_message)
 
         wedding = Wedding(
             wedding_name=wedding_name,
