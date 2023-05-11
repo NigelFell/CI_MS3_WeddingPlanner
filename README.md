@@ -4,28 +4,30 @@
 
 ### This is the website for a Wedding Planner Application. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
 
-[View the live project here.](https://nigelfell.github.io/)
+[View the live project here.](https://ci-ms3-weddingplanner.herokuapp.com/)
 
 #
 
 ### A screenshot of the responsive website:
-![A screenshot of the responsive website](assets/docs/responsive.png)
+![A screenshot of the responsive website](weddingplanner/docs/responsive.png)
 
 #
 
 ## Project Scope
 
-    To build a website for two users to play a Four in a Line game, taking turns to drop counters and so competing against each other to line up four counters in a column, row or diagonal arrangement.
-
-    The website will indicate which players turn it is next, check and display if there has been a winner, display the players score in games won, allow the players to reset the board so starting a new game and display the rules and objective of the game.
+    To build a website for users to plan their wedding. They can add their wedding with a unique wedding name (e.g. 'Diana & Nigel'), add tasks for the wedding (e.g. 'Book Licensed Venue') and add suppliers for those tasks (e.g. 'The Lion Inn'). 
+    
+    All this information should be viewable in a clear format not only for the users wedding but all the other weddings added to the website, hence the comunity aspect.
+    
+    Weddings, tasks and suppliers should be editable and can be deleted if required. Futhermore, a set of default tasks can be added to a wedding to assit the user in their planning and suppliers from other wedding tasks can be copied to the users wedding task as they see fit.
 
 #
 
 ## Future Enhancements
 
-    1. Allow one user to compete against the website at different levels of skill.
+    1. Provide a log in screen so that users can only edit and delete their own wedding, tasks and suppliers.
 
-    2. Allow two users to compete against each other but on different devices in different locations.
+    2. Provide a priority task list to see what needs to be arranged/completed next.
 
 #
 
@@ -35,32 +37,43 @@
 
     -   First Time Visitor Goals:
         1. As a First Time Visitor, I want to easily understand the main purpose of the site.
-        2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a  
-           clear presentation that is responsive on different devices.
-        3. As a First Time Visitor, I want to be able to view how to play and the objective of the 
-           game.
-        4. As a First Time Visitor, I want to be able to view current scores.
-        5. As a First Time Visitor, I want to be able to see who's turn it is next.
-        6. As a First Time Visitor, I want to be able to see see the winner.
-        7. As a First Time Visitor, I want to be able to reset the game and start a new one.
+        2. As a First Time Visitor, I want to be able to easily view existing weddings, tasks and suppliers
+           in a clear presentation that is responsive on different devices.
+        3. As a First Time Visitor, I want to be able to easily search weddings based on the wedding name,
+           wedding country and/or wedding town.
+        4. As a First Time Visitor, I want to be able to easily add a wedding, a task(s) for a wedding,
+           a supplier(s) for those tasks and view all this information in clear presentation that is 
+           responsive on different devices.
+        5. As a First Time Visitor, I want to be able to easily edit or delete a wedding, task or supplier.
+        6. As a First Time Visitor, I want to be able to add a default set of tasks for thier wedding to 
+           assist in the set up and planning of their wedding.
+        7. As a First Time Visitor, I want to be able to copy a supplier from a selected wedding and task
+           to their own wedding and task.
         
     -   Returning & Frequent Visitor Goals:
-        1. As a Returning Visitor, I want to quickly access the site and play the Four in a Line game as per the first time visitor.
+        1. As a Returning Visitor, I want to quickly access the site and view the status of my wedding tasks
+           and task suppliers in a clear presentation that is responsive on different devices.
+        2. As a Returning Visitor, I want to be able to update the status of my wedding by adding, editing or
+           deleting planning wedding tasks and task suppliers.
 
 -   ### Design
 
+    -   #### Frontend Framework
+        To create a modern responsive site Google's Material Design Materialize CSS framework is used. The responsive
+        behavior is based on the standard 12-column grid system using containers, rows, and columns.
+
     -   #### Colour Scheme
-        To create a modern look and feel that is clear to new users and familiar to a user who has played the physical version of the Four in a Line game.
+        To create a modern look and feel in a wedding theme that is clear to new users and familiar to a returning user.
+        One of the benefits of using Google's Material Design is that there are 200 custom color classes that can be used
+        use for backgrounds and text.
 
     -   #### Typography
-        Raleway is the font used on the site. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. The Raleway font is an elegant sans-serif typeface.
+        Roboto 2.0 is the font used on the site. It is the standard font of Materialize and features friendly and open
+        curves making a more natural reading rhythm.
 
     -   #### Imagery
         Imagery is important but has been kept to a minimum to improve the sites upload time.
 
-    -   #### Sound
-        Sound effects enhance the user experience with extra feedback on their actions.
-  
     -   #### A screenshot of the visual design elements:
         ![A screenshot of the visual design elements](assets/docs/user-experience-design.png)
 
