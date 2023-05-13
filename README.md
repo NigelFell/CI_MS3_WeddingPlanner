@@ -190,10 +190,19 @@
     
     The site was initially checked with Google Chrome's Dev Tools using the Device Toolbar to check different device sizes, screenshots below:
 
--   [View a screenshot of the standard computer](assets/docs/gc-resp-standard.png)
--   [View a screenshot of the Samsung Galaxy S8](assets/docs/gc-resp-samsunggs8.png)
--   [View a screenshot of the iPhone SE](assets/docs/gc-resp-iphonese.png)
--   [View a screenshot of the iPad Air](assets/docs/gc-resp-ipadair.png)
+-   [View a screenshot of the weddings page on a standard computer](weddingplanner/docs/gc-resp-standard-weddings.png)
+-   [View a screenshot of the add wedding form on a standard computer](weddingplanner/docs/gc-resp-standard-add-wedding.png)
+-   [View a screenshot of the tasks page on a standard computer](weddingplanner/docs/gc-resp-standard-tasks.png)
+-   [View a screenshot of the add task form on a standard computer](weddingplanner/docs/gc-resp-standard-add-task.png)
+-   [View a screenshot of the tasks page on a standard computer](weddingplanner/docs/gc-resp-standard-suppliers.png)
+-   [View a screenshot of the add task form on a standard computer](weddingplanner/docs/gc-resp-standard-add-supplier.png)
+
+-   [View a screenshot of the weddings page on a iPhone SE](weddingplanner/docs/gc-resp-iphonese-weddings.png)
+-   [View a screenshot of the add wedding form on a iPhone SE](weddingplanner/docs/gc-resp-iphonese-add-wedding.png)
+-   [View a screenshot of the tasks page on a iPhone SE](weddingplanner/docs/gc-resp-iphonese-tasks.png)
+-   [View a screenshot of the add task form on a iPhone SE](weddingplanner/docs/gc-resp-iphonese-add-task.png)
+-   [View a screenshot of the tasks page on a iPhone SE](weddingplanner/docs/gc-resp-iphonese-suppliers.png)
+-   [View a screenshot of the add task form on a iPhone SE](weddingplanner/docs/gc-resp-iphonese-add-supplier.png)
 
 ### Testing User Stories from User Experience (UX) Section
 
