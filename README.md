@@ -74,16 +74,31 @@
     -   #### Imagery
         Imagery is important but has been kept to a minimum to improve the sites upload time.
 
-    -   #### A screenshot of the visual design elements:
-        ![A screenshot of the visual design elements](assets/docs/user-experience-design.png)
+    -   #### Screenshots of the visual design elements used on the site:
+        - ##### Weddings page
+        ![A screenshot of the visual design elements for the weddings page](weddingplanner/docs/ux-design-weddings.png)
+        - ##### Wedding tasks page
+        ![A screenshot of the visual design elements for the tasks page](weddingplanner/docs/ux-design-wedding-tasks.png)
+        - ##### Task suppliers page
+        ![A screenshot of the visual design elements for the suppliers page](weddingplanner/docs/ux-design-task-suppliers.png)
+        - ##### Search weddings form
+        ![A screenshot of the visual design elements for the search weddings form](weddingplanner/docs/ux-design-wedding-search.png)
+        - ##### Add wedding form
+        ![A screenshot of the visual design elements for the add wedding form](weddingplanner/docs/ux-design-add-wedding.png)
+        - ##### Add tasks dialog
+        ![A screenshot of the visual design elements for the add tasks dialog](weddingplanner/docs/ux-design-add-tasks-dialog.png)
+        - ##### Add task form
+        ![A screenshot of the visual design elements for the add task form](weddingplanner/docs/ux-design-add-task.png)
+        - ##### Add supplier form
+        ![A screenshot of the visual design elements for the add supplier form](weddingplanner/docs/ux-design-add-supplier.png)
 
 -   ### Wireframes
 
-    -   #### The wireframe for a standard computer screen:
-        ![View of the standard wireframe](assets/docs/wireframe.png)
+    -   #### The wireframes for a standard computer screen:
+        ![View of the standard wireframe for the weddings page](weddingplanner/docs/wireframe-weddings.png)
 
-    -   #### The wireframe for a mobile device:
-        ![View of the mobile wireframe](assets/docs/wireframe-mobile.png)
+    -   #### The wireframes for a mobile device:
+        ![View of the mobile wireframe for the weddings page](weddingplanner/docs/wireframe-weddings-mobile.png)
 
 -   ### Initial Coding
 
