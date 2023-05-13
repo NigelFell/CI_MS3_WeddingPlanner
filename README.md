@@ -162,9 +162,17 @@
     - Material Design was used to create and test the colour scheme for the website.
 10. [Font Awesome](https://fontawesome.com/)
     - Font Awesome was used on the website to add icons for aesthetic and UX purposes.
-11. [PostgreSQL](https://www.postgresql.org/)
-    - A Postgres relational database will be used to store the application data for the application.
-11. [Google Chrome]
+11. [Lucidchart](https://www.lucidchart.com)
+    - Lucidchart was used to design the database schema for the application.
+12. [PostgreSQL](https://www.postgresql.org/)
+    - A Postgres relational database will be used to store the application data for the site.
+13. [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/)
+    - The Postgres relational database accessed via Python using Flask, the SLQAlchemy ORM.
+14. [ElephantSQL](https://www.elephantsql.com/)
+    - The Postgres relational database will be hosted on ElephantSQL.
+15. [Heroku](https://www.heroku.com)
+    - The site will be deployed on the Heroku Cloud Application Platform.
+16. [Google Chrome]
     - The Device Toolbar in Dev Tools was used to check the responsiveness of the site.
 
 ## Testing
