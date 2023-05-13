@@ -56,7 +56,7 @@
         2. As a Returning Visitor, I want to be able to update the status of my wedding by adding, editing or
            deleting planning wedding tasks and task suppliers.
 
--   ### Design
+-   ### UX Design
 
     -   #### Frontend Framework
         To create a modern responsive site Google's Material Design Materialize CSS framework is used. The responsive
@@ -100,10 +100,18 @@
     -   #### The wireframes for a mobile device:
         ![View of the mobile wireframe for the weddings page](weddingplanner/docs/wireframe-weddings-mobile.png)
 
+-   ### Backend/Database Design
+
+    -   The backend will be a Postgres relational database accessed via Python using Flask, the SLQAlchemy ORM.
+
+    -   #### Database schema:
+        ![View of the database schema for the weddingplanner application](weddingplanner/docs/weddingplanner-db-schema.png)
+
 -   ### Initial Coding
 
-    -   The site was coded in Gitpod alongside the "Love Maths" project and therefore takes some of    
-        the features and code from this resource.
+    -   The site was coded in Gitpod and based on the Relational Database Management System mini-project,
+        a task manager application. Therefore the Wedding Planner application takes many of the features
+        and setup from from this resource.
 
 -   ### Responsiveness
 
@@ -130,6 +138,7 @@
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+-   [Python3](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frameworks, Libraries & Programs Used
 
@@ -151,11 +160,11 @@
     - Figma was used to create the [wireframes](https://github.com/) during the design process.
 9. [Material Design:](https://material.io/resources/color/)
     - Material Design was used to create and test the colour scheme for the website.
-10. [Free Sounds Library](https://www.freesoundslibrary.com/)
-    - Sound effects were downloaded from the Free Sounds Library.
-11. [Font Awesome](https://fontawesome.com/)
+10. [Font Awesome](https://fontawesome.com/)
     - Font Awesome was used on the website to add icons for aesthetic and UX purposes.
-12. [Google Chrome]
+11. [PostgreSQL](https://www.postgresql.org/)
+    - A Postgres relational database will be used to store the application data for the application.
+11. [Google Chrome]
     - The Device Toolbar in Dev Tools was used to check the responsiveness of the site.
 
 ## Testing
