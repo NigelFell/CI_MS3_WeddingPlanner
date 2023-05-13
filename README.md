@@ -179,13 +179,12 @@
 
 ### HTML and CSS Validation
 
-    The W3C Markup Validator, W3C CSS Validator and JSHint JavaScript Validator services were used to validate every page of the project to ensure there were no syntax errors in the project.
+    The W3C Markup Validator and W3C CSS Validator services were used to validate every page of the project to ensure there were no syntax errors
+    in the project. There were no errors found in the Markup but the in the CSS there was 1 error and 482 warnings in the Materialize framwork.
 
--   [W3C Markup Validator](https://validator.w3.org/) - [View results](assets/docs/html-validation-results.png)
+-   [W3C Markup Validator](https://validator.w3.org/) - [View results](weddingplanner/docs/html-validation-results.png)
 
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [View results](assets/docs/css-validation-results.png)
-
--   [JSHint JavaScript Validator](https://jshint.com/) - [View results](assets/docs/js-validation-results.png)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [View results](weddingplanner/docs/css-validation-results.png)
 
 ### <a id="TestResp"></a>Responsiveness
     
@@ -194,7 +193,6 @@
 -   [View a screenshot of the standard computer](assets/docs/gc-resp-standard.png)
 -   [View a screenshot of the Samsung Galaxy S8](assets/docs/gc-resp-samsunggs8.png)
 -   [View a screenshot of the iPhone SE](assets/docs/gc-resp-iphonese.png)
--   [View a screenshot of the iPhone 5](assets/docs/gc-resp-iphone5.png)
 -   [View a screenshot of the iPad Air](assets/docs/gc-resp-ipadair.png)
 
 ### Testing User Stories from User Experience (UX) Section
