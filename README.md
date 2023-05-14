@@ -54,7 +54,7 @@
         1. As a Returning Visitor, I want to quickly access the site and view the status of my wedding tasks
            and task suppliers in a clear presentation that is responsive on different devices.
         2. As a Returning Visitor, I want to be able to update the status of my wedding by adding, editing or
-           deleting planning wedding tasks and task suppliers.
+           deleting a wedding, wedding tasks and task suppliers.
 
 -   ### UX Design
 
@@ -205,85 +205,99 @@
 -   [View a screenshot of the add task form on a iPhone SE](weddingplanner/docs/gc-resp-iphonese-add-supplier.png)
 
 ### Testing User Stories from User Experience (UX) Section
-
+        
 -   #### First Time Visitor Goals
   
     1. As a First Time Visitor, I want to easily understand the main purpose of the site.
-        1. Upon entering the site, users can easily see what the purpose of the site is whether or not they are familiar with the Four in a Line game.
+        1. Upon entering the site, users can easily see what the purpose of the site is.
         2. The heading a logo clearly communicate what the site is about.
-        3. The page is unclutterred with minimal elements to navigate so the user can concentrate on the game.
-        4. The user can easily see who's turn it is next, if there has been a winner, the current scores and can restart the game.
-        5. There are tooltips on the who's turn it is textbox and new game button to assist the user.
-        6. The user can easily see instructions on how to play and the rules of the game.
-        7. The user is alerted with a popup if they click a column that is full, if they carry on playing after a winner has been declared or if they click the new game button when the game is still in play.
 
-    2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a clear 
-       presentation that is responsive on different devices.
-        1. The site has been designed to be easy to use and allow the user to concentrate on the game 
-           using different devices such as a standard computer, laptop, tablet or mobile phone.
-        2. The user can position a counter over a column with the cursor and "drop" the counter with a click. If the column is full the user is alerted with a popup.
-        3. If the counter dropped is a winner the user is notified in the highlighted text box above the game table. 
+    2. As a First Time Visitor, I want to be able to easily view existing weddings, tasks and suppliers
+       in a clear presentation that is responsive on different devices.
+        1. The site has been designed to be easy to use and allow the user to easily view existing weddings,
+           tasks and suppliers using different devices such as a standard computer, laptop, tablet or mobile phone.
+        2. The tasks for a wedding can be viewed by clicking on the "VIEW TASKS" button on a Weddings card.
+        3. The suppliers for a task can be viewed by clicking on the "VIEW SUPPLIERS" button on a Task collapsibles body.
     
-    3. As a First Time Visitor, I want to be able to view how to play and the objective of the game.
-        1. The user can easily find a description of the rules and objective of the game in a rules 
-           section.
+    3. As a First Time Visitor, I want to be able to easily search weddings based on the wedding name, wedding
+       country and/or wedding town.
+        1. The search form can be opened by clicking on the "SEARCH WEDDINGS" button on the weddings page.
+        2. The user can then select a specific wedding in a dropdown or select a country and/or town in the dropdowns
+           and click the "SEARCH" button to make the search.
 
-    4. As a First Time Visitor, I want to be able to view current scores.
-        1. The user can easily see current scores under the game table.
+    4. As a First Time Visitor, I want to be able to easily add a wedding, a task(s) for a wedding, a supplier(s) for
+       those tasks and view all this information in clear presentation that is responsive on different devices.
+        1. The user can easily add a wedding using the "ADD WEDDING" button on the weddings page. The add wedding form
+           will display allowing the user to enter the required fields. If a field is missed or the wedding name already
+           exists the user is prompted on the form after clicking the "ADD WEDDING" button.
+        2. The user can easily add a task using the "ADD TASK" button on the tasks page. The add task form will display
+           allowing the user to enter the required fields. If a field is missed the user is prompted on the form after
+           clicking the "ADD TASK" button.
+        3. The user can easily add a task using the "ADD SUPPLIER" button on the suppliers page. The add supplier form
+           will display allowing the user to enter the required fields. If a field is missed the user is prompted on the
+           form after clicking the "ADD SUPPLIER" button.
 
-    5. As a First Time Visitor, I want to be able to see who's turn it is next.
-        1. The user can easily see who's turn it is next in a highlighted text box above the game table.
+    5. As a First Time Visitor, I want to be able to easily edit or delete a wedding, task or supplier.
+        1. The user can easily edit a wedding using the "EDIT" button on a specific wedding card on the weddings page.
+           The edit task form will display allowing the user to edit the fields. Changes are saved by clicking the 
+           "SAVE CHANGES" button.
+        2. The user can easily delete a wedding using the "DELETE" button on a specific wedding card on the weddings page.
+           A dialog is displayed prompting the user to check they do want to delete the wedding and all of it's
+           associated tasks and their associated suppliers.
+        3. The user can easily edit a task using the "EDIT" button after clicking a specific task collapsible on the
+           tasks page. Changes are saved by clicking the "SAVE CHANGES" button.
+        4. The user can easily delete a task using the "DELETE" button after clicking a specific task collapsible on the
+           tasks page. A dialog is displayed prompting the user to check they do want to delete the task and all of it's
+           associated suppliers.
+        5. The user can easily edit a supplier using the "EDIT" button after clicking a specific supplier collapsible on
+           the suppliers page. Changes are saved by clicking the "SAVE CHANGES" button.
+        6. The user can easily delete a supplier using the "DELETE" button after clicking a specific supplier collapsible
+           on the suppliers page. A dialog is displayed prompting the user to check they do want to delete the supplier.
 
-    6. As a First Time Visitor, I want to be able to see if the game has been won.
-        1. The user can see the winner in a highlighted text box above the game table.
+    6. As a First Time Visitor, I want to be able to add a default set of tasks for thier wedding to assist in the set up
+       and planning of their wedding.
+        1. The user can easily add a default set of wedding tasks using the "ADD TASKS" button on a specific wedding card
+           on the weddings page. A dialog is displayed prompting the user to check they do want to add a default set of
+           tasks to the wedding.
 
-    7. As a First Time Visitor, I want to be able to reset the game and start a new one.
-        1. The user can easily start a new game by pressing the New Game button above the game table.
-        2. If the game is still in play a confirm popup is shown to the user.
+    7. As a First Time Visitor, I want to be able to copy a supplier from a selected wedding and task to their own wedding
+       and task.
+        1. The user can easily copy a supplier using the "COPY" button after clicking a specific supplier collapsible
+           on the suppliers page. The copy supplier form is displayed allowing the user to select a specific wedding task
+           they want to copy the supplier too.
 
 -   #### Returning & Frequent Visitor Goals
 
-    1. As a Returning Visitor, I want to quickly access the site and play the Four in a Line game as per 
-       the first time visitor.
-        1. The user can access the site quickly and start playing a new game as they are familiar with the rules and intuitive game design.
+    1. As a Returning Visitor, I want to quickly access the site and view the status of my wedding tasks and task suppliers
+       in a clear presentation that is responsive on different devices.
+        1. The site has been designed to be easy to use and allow the user to easily view existing weddings,
+           tasks and suppliers using different devices such as a standard computer, laptop, tablet or mobile phone.
+        2. The tasks for a wedding can be viewed by clicking on the "VIEW TASKS" button on a Weddings card.
+        3. The suppliers for a task can be viewed by clicking on the "VIEW SUPPLIERS" button on a Task collapsibles body.
+    2. As a Returning Visitor, I want to be able to update the status of my wedding by adding, editing or deleting a wedding,
+       wedding tasks and task suppliers.
+        1. The user can easily edit a wedding using the "EDIT" button on a specific wedding card on the weddings page.
+           The edit task form will display allowing the user to edit the fields. Changes are saved by clicking the 
+           "SAVE CHANGES" button.
+        2. The user can easily delete a wedding using the "DELETE" button on a specific wedding card on the weddings page.
+           A dialog is displayed prompting the user to check they do want to delete the wedding and all of it's
+           associated tasks and their associated suppliers.
+        3. The user can easily edit a task using the "EDIT" button after clicking a specific task collapsible on the
+           tasks page. Changes are saved by clicking the "SAVE CHANGES" button.
+        4. The user can easily delete a task using the "DELETE" button after clicking a specific task collapsible on the
+           tasks page. A dialog is displayed prompting the user to check they do want to delete the task and all of it's
+           associated suppliers.
+        5. The user can easily edit a supplier using the "EDIT" button after clicking a specific supplier collapsible on
+           the suppliers page. Changes are saved by clicking the "SAVE CHANGES" button.
+        6. The user can easily delete a supplier using the "DELETE" button after clicking a specific supplier collapsible
+           on the suppliers page. A dialog is displayed prompting the user to check they do want to delete the supplier.
 
-### Testing The Check For A Winner Algorithm
-
--   #### Algorithm Design
-
-    The algorithm design follows a methodical approach, checking for a winner in the just dropped counters column, then row, then diagonal going right and finally diagonal going left. The testing followed this same approach with test scenarios to cover each eventuality.
-
--   #### Test Scenarios Performed
-
-    1. Tests for win in column:
-        1. Test for win in first column from bottom row up four counters, top row down four counters and then the middle four rows.
-        2. Test for win in last column from bottom row up four counters, top row down four counters and then the middle four rows.
-        3. Test for win in a middle column from bottom row up four counters, top row down four counters and then the middle four rows.
-
-    2. Tests for win in row:
-        1. Test for win in bottom row from first column across four counters, last column back across four counters and then in the middle columns across four counters.
-        2. Test for win in top row from first column across four counters, last column back across four counters and then in the middle columns across four counters.
-        3. Test for win in a middle row from first column across four counters, last column back across four counters and then in the middle columns across four counters.
-
-    3. Tests for win diagonal going left to right:
-        1. Test for win from bottom row first column diagonally across and then a middle column diagonally across.
-        2. Test for win from top row diagonally back from the last column and then diagonally back from a middle column.
-        3. Test for win from a middle row first column diagonally across and then a middle column diagonally across.
-        4. Test for win from a middle row diagonally back from the last column and then diagonally back from a middle column.
-
-    4. Tests for win diagonal going right to left:
-        1. Test for win from bottom row last column diagonally back across and then a middle column diagonally back across.
-        2. Test for win from top row diagonally across from the first column and then diagonally back from a middle column.
-        3. Test for win from a middle row first column diagonally back across and then a middle column diagonally back across.
-        4. Test for win from a middle row diagonally back from the last column and then diagonally back from a middle column.
-
-### Further Testing
+### Testing
 
 -   The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Opera browsers.
--   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 6 and various Window 
-    phones.
--   Friends and family members were asked to review the site on as many devices as they had available, 
-    play the game and to point out any bugs and/or user experience issues.
+-   The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 6 and various Window phones.
+-   Friends and family members were asked to review the site on as many devices as they had available and to point out any
+    bugs and/or user experience issues.
 
 ### Known Bugs
 
