@@ -98,9 +98,13 @@
 
     -   #### The wireframes for a standard computer screen:
         ![View of the standard wireframe for the weddings page](weddingplanner/docs/wireframe-weddings.png)
+        ![View of the standard wireframe for the tasks page](weddingplanner/docs/wireframe-tasks.png)
+        ![View of the standard wireframe for the suppliers page](weddingplanner/docs/wireframe-suppliers.png)
 
     -   #### The wireframes for a mobile device:
         ![View of the mobile wireframe for the weddings page](weddingplanner/docs/wireframe-weddings-mobile.png)
+        ![View of the mobile wireframe for the tasks page](weddingplanner/docs/wireframe-tasks-mobile.png)
+        ![View of the mobile wireframe for the suppliers page](weddingplanner/docs/wireframe-suppliers-mobile.png)
 
 -   ### Backend/Database Design
 
