@@ -29,6 +29,8 @@
 
     2. Provide a priority task list to see what needs to be arranged/completed next.
 
+    3. Provide a print facility to print a timeline showing tasks to complete and their asscoiated suppliers.
+
 #
 
 ## User Experience (UX)
@@ -307,18 +309,82 @@
 
 ## Deployment
 
-### GitHub Pages
+### Database
 
-The project was deployed to GitHub Pages using the following steps...
+-   The project database was deployed to ElephantSQL using the following steps:
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
-3. Scroll down the Settings page until you locate the "Pages" Section on the left hand side of the screen.
-4. Under "Source", click the dropdown and select "Deploy from a branch".
-5. Under "Branch", click the first dropdown and select "main", "/ (root)" on the next dropdown, then "Save".
-5. The page will automatically refresh.
-6. Scroll back to the top of the page to locate the now published site next to "Your site is live at".
+    1. Create an account on ElephantSQL:
+        1. Navigate to ElephantSQL.com and click “Get a managed database today”
+        2. Select “Try now for FREE” in the TINY TURTLE database plan
+        3. Select “Log in with GitHub” and authorize ElephantSQL with your selected GitHub account
+        4. In the Create new team form:
+            1. Add a team name (your own name is fine)
+            2. Read and agree to the Terms of Service
+            3. Select Yes for GDPR
+            4. Provide your email address
+            5. Click “Create Team”
+        5. Your account is successfully created!
+    2. Create the database:
+        1. Click “Create New Instance”
+        2. Set up your plan:
+            1. Give your plan a Name (this is commonly the name of the project)
+            2. Select the Tiny Turtle (Free) plan
+            3. You can leave the Tags field blank
+        3. Select “Select Region”
+        4. Select a data center near you
+        5. Then click review
+        6. Check your details are correct and then click “Create instance”
+        7. Return to the ElephantSQL dashboard and click on the database instance name for this project
+        8. Leave this tab open, we will come back here later
+
+### Application
+
+-   The application site was deployed to Heroku using the following steps:
+
+    1. In your Github workspace:
+        1. Generate the requirements.txt file with the following command in the terminal
+            pip freeze --local > requirements.txt
+           After you run this command a new file called requirements.txt should appear in your root directory
+        2. Heroku requires a Procfile containing a command to run your program. Inside the root directory of your
+           project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
+            1. Inside the file, add the following command with NO blank line at the end
+                web: python run.py
+        3. Open your __init__.py file and add the folowing section in place of the linesetting the SLQALCHEMY_DATABASE_URI:
+            if os.environ.get("DEVELOPMENT") == "True":
+                app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+            else:
+                uri = os.environ.get("DATABASE_URL")
+                if uri.startswith("postgres://"):
+                    uri = uri.replace("postgres://", "postgresql://", 1)
+                app.config["SQLALCHEMY_DATABASE_URI"] = uri
+        4. Save all your files and then add, commit and push your changes to GitHub
+    2. Connecting the database to the hosting platform:
+        1. Log into Heroku.com and click “New” and then “Create a new app”
+        2. Choose a unique name for your app, select the region closest to you and click “Create app”
+        3. Go to the Settings tab of your new app
+        4. Click Reveal Config Vars
+        5. Return to your ElephantSQL tab and copy your database URL
+        6. Back on Heroku, add a Config Var called DATABASE_URL and paste your ElephantSQL database URL in as the value.
+           Make sure you click “Add”
+        7. Add each of your other environment variables except DEVELOPMENT, DEBUG and DB_URL from the env.py file as a Config Var.
+    3. Deploying the application
+        1. On Heroku navigate to the “Deploy” tab of your app
+        2. In the Deployment method section, select “Connect to GitHub”
+        3. Search for your repo and click Connect
+        4. Optional: You can click Enable Automatic Deploys in case you make any further changes to the project.
+           This will trigger any time code is pushed to your GitHub repository
+        5. As we already have all our changes pushed to GitHub, we will use the Manual deploy section and click Deploy Branch.
+           This will start the build process.
+        6. Now, we have our project in place, and we have an empty database ready for use. As you may remember from our local
+           development, we still need to add our tables to our database. To do this, we can click the “More” button and select
+           “Run console”:
+            1. Type python3 into the console and click Run
+            2. This opens the Python terminal, in the same way as it would if we typed python3 into the terminal within our IDE.
+               Let’s now create the tables with the commands we used before:
+                from taskmanager import db
+                db.create_all()
+                exit()
+        7. The app should be up and running now, so click the “Open app” button to run the application.
 
 #
 
@@ -328,6 +394,9 @@ The project was deployed to GitHub Pages using the following steps...
 
 -   The project was initailly coded alongside the "Love Maths" project and therefore takes some of the 
     features and source code from this resource.
+    -   The application is based on the Relational Database Management System mini-project, a task manager application.
+        The Wedding Planner application therefore takes many of the features and setup from from this resource.
+
 
 ### Content
 
@@ -339,7 +408,7 @@ The project was deployed to GitHub Pages using the following steps...
 
 ### Acknowledgements
 
--   Pasquale for his help and encouragement.
+-   Pasquale and Manu for their help and encouragement.
 
 -   My Mentor for support and helpful feedback.
 
